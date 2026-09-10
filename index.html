@@ -1,133 +1,590 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
 <head>
    <meta charset="UTF-8">
-   <meta name="description"
-      content="Experienced professional offering high-quality digital and creative services. Discover my portfolio and work with me to turn your ideas into impactful results.">
-   <meta name="robots" content="index, follow">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Mezzaluna Azzafira | Portfolio</title>
 
-   <!--=============== FAVICON ===============-->
-   <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+   <!--=============== REMIXICONS ===============-->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css">
 
-   <!--=============== REMIXICONS - Insert link for icons ===============-->
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css">
+   <!--=============== GOOGLE FONTS ===============-->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Poppins:wght@400;500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+   
+   <!--=============== SWIPER CSS ===============-->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-   <!--=============== SWIPER CSS - Insert link for swiperjs ===============-->
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+   <style>
+      /*=============== VARIABLES CSS ===============*/
+      :root {
+         --header-height: 4.5rem;
+         --primary-color: #2be059;
+         --primary-color-alt: #22c74d;
+         --bg-color: #0b0f0c;
+         --bg-card: #121814;
+         --title-color: #ffffff;
+         --text-color: #a3b3a7;
+         --white: #ffffff;
+         --body-font: 'Plus Jakarta Sans', sans-serif;
+         --title-font: 'Syne', sans-serif;
+         --h1-font-size: 3.5rem;
+         --subtitle-font-size: 1.125rem;
+         --normal-font-size: 1rem;
+      }
 
-   <!--=============== CSS ===============-->
-   <link rel="stylesheet" href="assets/css/styles.css">
+      @media screen and (max-width: 992px) {
+         :root {
+            --h1-font-size: 2.25rem;
+            --subtitle-font-size: 1rem;
+         }
+      }
 
-   <title>Responsive portfolio website | Bedimcode</title>
+      /*=============== BASE ===============*/
+      * {
+         box-sizing: border-box;
+         padding: 0;
+         margin: 0;
+      }
+
+      html {
+         scroll-behavior: smooth;
+      }
+
+      body {
+         font-family: var(--body-font);
+         background-color: var(--bg-color);
+         color: var(--text-color);
+         overflow-x: hidden;
+      }
+
+      ul { list-style: none; }
+      a { text-decoration: none; }
+      img { max-width: 100%; height: auto; }
+
+      .container {
+         max-width: 1140px;
+         margin-inline: auto;
+         padding-inline: 1.5rem;
+      }
+
+      /*=============== HEADER ===============*/
+      .header {
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         background-color: rgba(11, 15, 12, 0.8);
+         backdrop-filter: blur(16px);
+         z-index: 100;
+      }
+
+      .nav {
+         height: var(--header-height);
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+      }
+
+      .nav__logo {
+         color: var(--title-color);
+         font-weight: 700;
+         font-family: var(--title-font);
+         font-size: 1.25rem;
+      }
+
+      .nav__list {
+         display: flex;
+         align-items: center;
+         column-gap: 2.5rem;
+      }
+
+      .nav__link {
+         color: var(--text-color);
+         font-weight: 500;
+         transition: .3s;
+         position: relative;
+      }
+
+      .nav__link:hover,
+      .nav__link.active-link {
+         color: var(--white);
+      }
+
+      .nav__link.active-link::before {
+         content: '';
+         position: absolute;
+         left: -12px;
+         top: 50%;
+         transform: translateY(-50%);
+         width: 6px;
+         height: 6px;
+         background-color: var(--primary-color);
+         border-radius: 50%;
+      }
+
+      .nav__btn {
+         background-color: var(--primary-color);
+         color: #051307;
+         padding: .75rem 1.75rem;
+         border-radius: 4rem;
+         font-weight: 700;
+         transition: .3s;
+         box-shadow: 0 4px 20px rgba(43, 224, 89, 0.3);
+      }
+
+      .nav__btn:hover {
+         background-color: var(--primary-color-alt);
+         transform: translateY(-2px);
+      }
+
+      /*=============== HOME ===============*/
+      .home {
+         background-color: #0b0f0c;
+         text-align: center;
+         padding-top: 7rem;
+         padding-bottom: 4rem;
+      }
+
+      .home__container {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+      }
+
+      .home__subtitle {
+         color: #ffffff;
+         font-family: 'Poppins', sans-serif;
+         font-size: 0.95rem;
+         font-weight: 500;
+         margin-bottom: 1.25rem;
+         letter-spacing: 0.3px;
+      }
+
+      .home__title {
+         font-family: 'Syne', sans-serif;
+         font-size: 3.25rem;
+         font-weight: 700;
+         color: #ffffff;
+         line-height: 1.2;
+         margin-bottom: 1rem;
+      }
+
+      .typed-text, .typed-cursor {
+         color: #2be059;
+         font-family: 'Syne', sans-serif;
+      }
+
+      .home__description {
+         color: #a3a3a3;
+         font-family: 'Poppins', sans-serif;
+         font-size: 0.95rem;
+         max-width: 480px;
+         margin: 0 auto 2.5rem;
+         line-height: 1.5;
+      }
+
+      .home__image-wrapper {
+         position: relative;
+         width: 260px;
+         height: 320px;
+         margin: 0 auto;
+      }
+
+      .home__card-bg {
+         position: absolute;
+         top: -10px;
+         left: 50%;
+         transform: translateX(-50%) rotate(-4deg);
+         width: 100%;
+         height: 100%;
+         background-color: #2be059;
+         border-radius: 2rem;
+         z-index: 1;
+      }
+
+      .home__card {
+         position: relative;
+         width: 100%;
+         height: 100%;
+         background-color: #161b18;
+         border-radius: 2rem;
+         overflow: hidden;
+         z-index: 2;
+         border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .home__img {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+         object-position: center;
+      }
+
+      .home__explore {
+         position: absolute;
+         bottom: -25px;
+         left: 50%;
+         transform: translateX(-50%);
+         width: 85px;
+         height: 85px;
+         z-index: 3;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+      }
+
+      .home__explore svg {
+         width: 100%;
+         height: 100%;
+         animation: rotateText 10s linear infinite;
+      }
+
+      .home__explore text {
+         fill: #ffffff;
+         font-size: 10px;
+         font-family: 'Poppins', sans-serif;
+         font-weight: 600;
+         letter-spacing: 1.2px;
+      }
+
+      .home__explore-icon {
+         position: absolute;
+         width: 38px;
+         height: 38px;
+         background-color: #2be059;
+         border-radius: 50%;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         color: #0b0f0c;
+         font-size: 1.2rem;
+      }
+
+      @keyframes rotateText {
+         0% { transform: rotate(0deg); }
+         100% { transform: rotate(360deg); }
+      }
+
+      /*=============== ABOUT ===============*/
+      .about__container {
+         display: flex;
+         flex-direction: row;
+         align-items: center;
+         justify-content: space-between;
+         gap: 4rem;
+         padding-block: 3rem 5rem;
+      }
+
+      .about__left { flex: 1.3; }
+      .about__right { flex: 0.8; display: flex; flex-direction: column; align-items: flex-start; }
+
+      .about__heading {
+         font-size: 1.85rem;
+         font-weight: 600;
+         color: #ffffff;
+         line-height: 1.35;
+      }
+
+      .about__highlight { color: #2be059; }
+
+      .about__description {
+         color: #a3a3a3;
+         font-size: 0.95rem;
+         line-height: 1.6;
+         margin-bottom: 1.5rem;
+      }
+
+      .about__button {
+         display: inline-flex;
+         align-items: center;
+         gap: 0.5rem;
+         background-color: #2be059;
+         color: #0b0f0c;
+         padding: 0.75rem 1.6rem;
+         border-radius: 2rem;
+         font-weight: 600;
+      }
+
+      /*=============== WORK SLIDER ===============*/
+      .work {
+         background-color: #0b0f0c;
+         padding-block: 4rem 5rem;
+      }
+
+      .work__title-main {
+         font-family: 'Syne', sans-serif;
+         font-size: 2.5rem;
+         color: #ffffff;
+         text-align: center;
+         margin-bottom: 3.5rem;
+      }
+
+      .work__title-highlight { color: #2be059; }
+
+      .work__swiper {
+         padding-bottom: 3.5rem !important;
+         overflow: hidden;
+      }
+
+      .work__card {
+         background: linear-gradient(180deg, rgba(22, 27, 24, 0.9) 0%, rgba(13, 17, 14, 0.95) 100%);
+         border: 1px solid rgba(43, 224, 89, 0.15);
+         border-radius: 2rem;
+         padding: 1.25rem;
+         box-sizing: border-box;
+      }
+
+      .work__img-wrapper {
+         position: relative;
+         border-radius: 1.5rem;
+         overflow: hidden;
+         margin-bottom: 1.25rem;
+         height: 210px;
+      }
+
+      .work__img {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+      }
+
+      .work__link-icon {
+         position: absolute;
+         top: 0.85rem;
+         right: 0.85rem;
+         width: 40px;
+         height: 40px;
+         background-color: #2be059;
+         color: #0b0f0c;
+         border-radius: 50%;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         font-size: 1.25rem;
+         font-weight: bold;
+         z-index: 10;
+         transition: transform 0.3s, background-color 0.3s;
+      }
+
+      .work__link-icon:hover {
+         transform: scale(1.1) rotate(45deg);
+         background-color: #ffffff;
+      }
+
+      .work__number {
+         display: block;
+         font-family: 'Syne', sans-serif;
+         font-size: 1.75rem;
+         font-weight: 700;
+         color: #2be059;
+         margin-bottom: 0.25rem;
+      }
+
+      .work__title {
+         font-family: 'Syne', sans-serif;
+         font-size: 1.2rem;
+         color: #ffffff;
+         margin-bottom: 0.5rem;
+      }
+
+      .work__description {
+         color: #a3a3a3;
+         font-size: 0.85rem;
+         line-height: 1.5;
+      }
+
+      .swiper-pagination-bullet {
+         width: 8px;
+         height: 8px;
+         background-color: #2a332d;
+         opacity: 1;
+         margin: 0 4px !important;
+         transition: all 0.3s ease;
+      }
+
+      .swiper-pagination-bullet-active {
+         background-color: #2be059 !important;
+         width: 10px;
+         height: 10px;
+         box-shadow: 0 0 10px rgba(43, 224, 89, 0.6);
+      }
+   </style>
 </head>
 
 <body>
-   <!--==================== HEADER & NAV ====================-->
+
    <header class="header" id="header">
       <nav class="nav container">
-         <a href="/index.html" class="nav__logo">Mezzaluna Azzafira</a>
-
-         <div class="nav__menu" id="nav-menu">
-            <ul class="nav__list">
-               <li>
-                  <a href="#home" class="nav__link active-link">Home</a>
-               </li>
-
-               <li>
-                  <a href="#work" class="nav__link">Works</a>
-               </li>
-
-               <li>
-                  <a href="#service" class="nav__link">My Services</a>
-               </li>
-
-               <li>
-                  <a href="#skills" class="nav__link">Skills</a>
-               </li>
-
-               <li>
-                  <a href="#contact" class="nav__contact">Contact me</a>
-               </li>
-            </ul>
-
-            <!-- Close -->
-            <button class="nav__close" id="nav-close" aria-label="Close menu">
-               <i class="ri-close-large-line"></i>
-            </button>
-         </div>
-
-         <!-- Toggle -->
-         <button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu">
-            <i class="ri-menu-line"></i>
-         </button>
+         <a href="#" class="nav__logo">Mezzaluna</a>
+         <ul class="nav__list">
+            <li><a href="#home" class="nav__link active-link">Home</a></li>
+            <li><a href="#works" class="nav__link">Works</a></li>
+            <li><a href="#services" class="nav__link">My Services</a></li>
+            <li><a href="#skills" class="nav__link">Skills</a></li>
+         </ul>
+         <a href="#contact" class="nav__btn">Contact me</a>
       </nav>
    </header>
 
-   <!--==================== MAIN ====================-->
    <main class="main">
-      <!-- CUSTOM CURSOR -->
-
-
-      <!--==================== HOME SECTION ====================-->
+      <!-- HOME SECTION -->
       <section class="home section" id="home">
-
+         <div class="home__container container">
+            <span class="home__subtitle">Hi! I'm Mezzaluna Azzafira - Based in Indonesia</span>
+            <h1 class="home__title">
+               Creative Designer & <br>
+               <span class="typed-text"></span>
+            </h1>
+            <p class="home__description">
+               I build designs and websites that solve problems, inspiring success.
+            </p>
+            <div class="home__image-wrapper">
+               <div class="home__card-bg"></div>
+               <div class="home__card">
+                  <img src="assets/img/home-img.png" alt="Mezzaluna Azzafira" class="home__img">
+               </div>
+               <a href="#about" class="home__explore">
+                  <svg viewBox="0 0 100 100" width="100" height="100">
+                     <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
+                     <text><textPath href="#circlePath">• LET'S EXPLORE MORE</textPath></text>
+                  </svg>
+                  <div class="home__explore-icon"><i class="ri-arrow-down-line"></i></div>
+               </a>
+            </div>
+         </div>
       </section>
 
-      <!--==================== ABOUT SECTION ====================-->
-      <section class="about section">
-
+      <!-- ABOUT SECTION -->
+      <section class="about section" id="about">
+         <div class="about__container container">
+            <div class="about__left">
+               <h2 class="about__heading">
+                  About Me: Young freelancer who enjoys <span class="about__highlight">web design</span> and <span class="about__highlight">development</span>, passionate about my work, disciplined, and successful.
+               </h2>
+            </div>
+            <div class="about__right">
+               <p class="about__description">
+                  If you have a project in mind, check out my work and contact me to work together. Best of luck!
+               </p>
+               <a href="#contact" class="about__button">
+                  Contact me <i class="ri-arrow-right-line"></i>
+               </a>
+            </div>
+         </div>
       </section>
 
-      <!--==================== WORK SECTION ====================-->
+      <!-- WORK SECTION -->
       <section class="work section" id="work">
+         <div class="container">
+            <h2 class="work__title-main">
+               View My <span class="work__title-highlight">Work</span>
+            </h2>
 
-      </section>
+            <div class="work__swiper swiper">
+               <div class="swiper-wrapper">
 
-      <!--==================== SERVICES SECTION ====================-->
-      <section class="services section" id="service">
+                  <article class="work__card swiper-slide">
+                     <div class="work__img-wrapper">
+                        <img src="assets/img/work-img-1.png" alt="SEO Medicine Website" class="work__img">
+                        <a href="https://website-demo-1.com" target="_blank" class="work__link-icon" aria-label="Live Demo">
+                           <i class="ri-arrow-up-right-line"></i>
+                        </a>
+                     </div>
+                     <div class="work__data">
+                        <span class="work__number">05</span>
+                        <h3 class="work__title">SEO Medicine Website</h3>
+                        <p class="work__description">
+                           Professional website for a company, using HTML, CSS, JavaScript, Gsap, Figma, Database and others.
+                        </p>
+                     </div>
+                  </article>
 
-      </section>
+                  <article class="work__card swiper-slide">
+                     <div class="work__img-wrapper">
+                        <img src="assets/img/work-img-2.png" alt="Restaurant Website" class="work__img">
+                        <a href="https://website-demo-2.com" target="_blank" class="work__link-icon" aria-label="Live Demo">
+                           <i class="ri-arrow-up-right-line"></i>
+                        </a>
+                     </div>
+                     <div class="work__data">
+                        <span class="work__number">01</span>
+                        <h3 class="work__title">Restaurant Website</h3>
+                        <p class="work__description">
+                           Professional website for a company, using HTML, CSS, JavaScript, Gsap, Figma, Database and others.
+                        </p>
+                     </div>
+                  </article>
 
-      <!--==================== SKILLS SECTION ====================-->
-      <section class="skills section" id="skills">
+                  <article class="work__card swiper-slide">
+                     <div class="work__img-wrapper">
+                        <img src="assets/img/work-img-3.png" alt="Design For Agriculture" class="work__img">
+                        <a href="https://website-demo-3.com" target="_blank" class="work__link-icon" aria-label="Live Demo">
+                           <i class="ri-arrow-up-right-line"></i>
+                        </a>
+                     </div>
+                     <div class="work__data">
+                        <span class="work__number">02</span>
+                        <h3 class="work__title">Design For Agriculture</h3>
+                        <p class="work__description">
+                           Professional website for a company, using HTML, CSS, JavaScript, Gsap, Figma, Database and others.
+                        </p>
+                     </div>
+                  </article>
 
-      </section>
+               </div>
 
-      <!--==================== TESTIMONIALS SECTION ====================-->
-      <section class="testimonials section">
-
-      </section>
-
-      <!--==================== CONTACT SECTION ====================-->
-      <section class="contact section" id="contact">
-
+               <!-- Pagination Dots -->
+               <div class="swiper-pagination"></div>
+            </div>
+         </div>
       </section>
    </main>
 
-   <!--==================== FOOTER ====================-->
-   <footer class="footer">
-
-   </footer>
-
-   <!--========== SCROLL UP ==========-->
-
-
-   <!--=============== SCROLLREVEAL - Insert link for animations ===============-->
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollReveal.js/4.0.9/scrollreveal.min.js"></script>
-
-   <!--=============== TYPED JS - Insert link for text animations ===============-->
+   <!--=============== THIRD-PARTY LIBRARIES ===============-->
    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.1.0/typed.umd.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-   <!--=============== SWIPER JS - Insert link for swiperjs ===============-->
-   <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+   <!--=============== CUSTOM SCRIPT ===============-->
+   <script>
+      /*=============== TYPED JS ===============*/
+      if (document.querySelector('.typed-text')) {
+         new Typed('.typed-text', {
+            strings: ['SEO Specialist|', 'Web Developer|', 'UI/UX Designer|'],
+            typeSpeed: 90,
+            backSpeed: 50,
+            backDelay: 1500,
+            loop: true,
+            showCursor: false
+         });
+      }
 
-   <!--=============== EMAIL JS - Insert link to send emails ===============-->
-   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
-   <!--=============== MAIN JS ===============-->
-   <script src="assets/js/main.js"></script>
+      /*=============== SWIPER JS ===============*/
+      document.addEventListener("DOMContentLoaded", function () {
+         let swiperWork = new Swiper(".work__swiper", {
+            slidesPerView: 1,
+            spaceBetween: 24,
+            grabCursor: true,
+            loop: true,
+            pagination: {
+               el: ".swiper-pagination",
+               clickable: true,
+            },
+            breakpoints: {
+               576: {
+                  slidesPerView: 2,
+               },
+               992: {
+                  slidesPerView: 3,
+                  spaceBetween: 32,
+               },
+            },
+         });
+      });
+   </script>
 </body>
 
 </html>

@@ -398,6 +398,19 @@ img {
 
 }
 
+/* FORCE SHOW ALL CONTENT */
+section,
+.home__container,
+.about__container,
+.work__container,
+.services__container,
+.skills__container,
+.contact__container {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
+
 /* For 2K resolutions <> */
 
 
